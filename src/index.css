@@ -1,0 +1,182 @@
+:root {
+  /* Professional / Enterprise Dark Theme - 'Human Touch' */
+  --bg-app: #111827;
+  /* Clean Dark Grey-Blue (Matte) */
+  --bg-card: #1f2937;
+  /* Card Background - Matte */
+  --bg-card-hover: #374151;
+  /* Subtle hover */
+
+  --primary: #3b82f6;
+  /* Standard Professional Blue */
+  --primary-glow: rgba(59, 130, 246, 0.1);
+  /* Very subtle glow, not neon */
+
+  --accent: #10b981;
+  /* Professional Green for Actions */
+
+  --text-main: #f3f4f6;
+  /* Off-white for better readability */
+  --text-muted: #9ca3af;
+  /* Soft Grey */
+
+  --border: #374151;
+  /* Subtle Border */
+
+  --sidebar-width: 260px;
+  --header-height: 80px;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* System Fonts = Human Feel */
+  --transition: all 0.2s ease-in-out;
+  /* Sharper transition */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  /* Better readability */
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Cleaner Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Utilities */
+.glass {
+  background: rgba(31, 41, 55, 0.8);
+  /* Less transperant, more solid */
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+}
+
+.glow-text {
+  /* Removed Neon Glow for Professional Look */
+  text-shadow: none;
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  /* Sharper corners */
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* Subtle depth */
+}
+
+.btn:hover {
+  background: #2563eb;
+  /* Darker Blue */
+  transform: translateY(-1px);
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  /* Standard UI radius */
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  /* Realistic Shadow */
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: #4b5563;
+  /* Removed excessive hover lift */
+  background: var(--bg-card-hover);
+}
+
+/* Layout */
+.sidebar {
+  width: var(--sidebar-width);
+  background: #111827;
+  /* Darker than card for contrast */
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: #0b1120;
+  /* Very deep blue-black for depth */
+}
+
+.header {
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: var(--bg-card);
+  z-index: 5;
+}
+
+.content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+/* Animations - Subtle Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
